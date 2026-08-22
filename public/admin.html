@@ -226,7 +226,63 @@ function toast(msg){
   const e=document.getElementById("toast"); e.textContent=msg; e.classList.add("show");
   clearTimeout(window._toast); window._toast=setTimeout(()=>e.classList.remove("show"),2500);
 }
+// SAVE ORDER TO SUPABASE
+const { data: savedOrder, error: orderError } = await supabaseClient
+  .from('orders')
+  .insert({
+    customer_name: order.name,
+    customer_email: order.email || null,
+    customer_phone: order.phone,
 
+    subtotal: Number(order.subtotal || 0),
+    discount: Number(order.couponDiscount || 0),
+    total_amount: Number(order.total || 0),
+
+    payment_method: order.payment_method,
+    payment_status: order.payment_status,
+    order_status: order.status,
+
+    shipping_address: order.address || '',
+    city: order.city || '',
+    state: order.state || '',
+    pincode: order.pincode || ''
+  })
+  .select()
+  .single();
+
+if (orderError) {
+  console.error('SUPABASE ORDER ERROR:', orderError);
+  alert('Order save झाला नाही: ' + orderError.message);
+  return;
+}
+
+console.log('ORDER SAVED:', savedOrder);
+
+// SAVE ORDER ITEMS
+const orderItems = order.items.map(item => ({
+  order_id: savedOrder.id,
+  product_id: item.id || null,
+  product_name: item.name || '',
+  category: item.category || '',
+  quantity: Number(item.qty || item.quantity || 1),
+  price: Number(item.price || item.discounted || 0),
+  total: Number(
+    (item.price || item.discounted || 0) *
+    (item.qty || item.quantity || 1)
+  )
+}));
+
+const { error: itemsError } = await supabaseClient
+  .from('order_items')
+  .insert(orderItems);
+
+if (itemsError) {
+  console.error('SUPABASE ORDER ITEMS ERROR:', itemsError);
+  alert('Order save झाला पण products save झाले नाहीत: ' + itemsError.message);
+  return;
+}
+
+console.log('ORDER ITEMS SAVED:', orderItems);
 async function login(){
   const email=document.getElementById("loginEmail").value.trim();
   const password=document.getElementById("loginPassword").value;

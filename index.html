@@ -1490,7 +1490,7 @@ function attachCheckoutEvents(){
   if(!form) return;
   const couponInput = document.getElementById('couponInput');
   if(couponInput){
-    couponInput.addEventListener('keydown', e=>{
+    couponInput.addEventListener('keydown',async e=>{
       if(e.key==='Enter'){ e.preventDefault(); applyCoupon(); }
     });
   }

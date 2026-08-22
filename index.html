@@ -163,23 +163,9 @@
   }
   .cat-tile:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
   .cat-tile .cat-icon{
-  width:100%;
-  height:220px;
-  margin:0 0 14px;
-  border-radius:8px;
-  overflow:hidden;
-  background:#f7f1f2;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.cat-tile .cat-icon img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-}
+    width:56px;height:56px;margin:0 auto 14px;border-radius:50%;
+    background:var(--blush);display:flex;align-items:center;justify-content:center;
+  }
   .cat-tile h3{font-size:19px;}
   .cat-tile p{font-size:12.5px;color:var(--ink-soft);margin-top:4px;}
 
@@ -826,7 +812,6 @@ const CATALOG_TITLES = {
   kurti:'Kurtis', saree:'Sarees', jewelry:'Artificial Jewelry', nightwear:'Night Wear',
   sets:'Co-ord & Three Piece Sets', all:'All Products'
 };
-
 const REVIEW_NAMES = ['Priya S.','Anjali R.','Neha K.','Sunita M.','Kavya P.','Ritu D.','Divya J.','Meera V.'];
 const REVIEW_TEXTS = [
   'Loved the fabric quality, fits true to size and the color is exactly as shown.',
@@ -1023,7 +1008,7 @@ function viewHome(){
         <div class="eyebrow">New Season Edit</div>
         <h1>Everyday elegance,<br><em>traditionally</em> yours.</h1>
         <p>Handpicked sarees, kurtis and artificial jewelry for every woman — festive, casual, or somewhere in between. Beautiful pieces, honest prices.</p>
-        <div class="hero-cta">
+        <div class="">
           <a href="#/catalog/saree" class="btn btn-gold">Shop Sarees</a>
           <a href="#/catalog/kurti" class="btn btn-outline" style="color:#fff;border-color:#fff;">Shop Kurtis</a>
         </div>
@@ -1041,41 +1026,15 @@ function viewHome(){
       </div>
     </div>
     <div class="cat-grid">
-      <a href="#/catalog/kurti" class="cat-tile">
-<div class="cat-icon">
-  <img src="./images/kurti.jpeg" alt="Kurtis">
-</div>
-</a>
-
-<a href="#/catalog/saree" class="cat-tile">
-  <div class="cat-icon"><img src="SAREE_IMAGE_URL" alt="Sarees"></div>
-  <h3>Sarees</h3>
-</a>
-
-<a href="#/catalog/nightwear" class="cat-tile">
-  <div class="cat-icon"><img src="NIGHTWEAR_IMAGE_URL" alt="Night Wear"></div>
-  <h3>Night Wear</h3>
-</a>
-
-<a href="#/catalog/sets" class="cat-tile">
-  <div class="cat-icon"><img src="SETS_IMAGE_URL" alt="Co-ord & Sets"></div>
-  <h3>Co-ord & Sets</h3>
-</a>
-
-<a href="#/catalog/jewelry" class="cat-tile">
-  <div class="cat-icon"><img src="JEWELRY_IMAGE_URL" alt="Jewelry"></div>
-  <h3>Jewelry</h3>
-</a>
-
-<a href="#/catalog/all?sale=1" class="cat-tile">
-  <div class="cat-icon"><img src="SALE_IMAGE_URL" alt="Sale"></div>
-  <h3>Sale</h3>
-</a>
-
-<a href="#/catalog/all" class="cat-tile">
-  <div class="cat-icon"><img src="" alt="New Arrivals"></div>
-  <h3>New Arrivals</h3>
-</a>
+      <a href="#/catalog/kurti" class="cat-tile"><div class="cat-icon">👗</div><h3>Kurtis</h3><p>Casual to festive</p>
+      
+      </a>
+      <a href="#/catalog/saree" class="cat-tile"><div class="cat-icon">🥻</div><h3>Sarees</h3><p>Elegant & festive</p></a>
+      <a href="#/catalog/nightwear" class="cat-tile"><div class="cat-icon">🌙</div><h3>Night Wear</h3><p>Night dress & gowns</p></a>
+      <a href="#/catalog/sets" class="cat-tile"><div class="cat-icon">🧵</div><h3>Co-ord & Sets</h3><p>Co-ord & three piece</p></a>
+      <a href="#/catalog/jewelry" class="cat-tile"><div class="cat-icon">💍</div><h3>Jewelry</h3><p>Artificial & elegant</p></a>
+      <a href="#/catalog/all?sale=1" class="cat-tile"><div class="cat-icon">🏷️</div><h3>Sale</h3><p>Up to 45% off</p></a>
+      <a href="#/catalog/all" class="cat-tile"><div class="cat-icon">✨</div><h3>New Arrivals</h3><p>Just landed</p></a>
     </div>
   </section>
 

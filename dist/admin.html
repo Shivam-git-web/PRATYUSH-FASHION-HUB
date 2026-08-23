@@ -249,7 +249,11 @@ async function checkSession(){
 }
 function showLogin(){document.getElementById("loginScreen").classList.remove("hidden");document.getElementById("adminApp").classList.add("hidden");}
 function showAdmin(){document.getElementById("loginScreen").classList.add("hidden");document.getElementById("adminApp").classList.remove("hidden");}
-async function logout(){await supabaseClient.auth.signOut();showLogin();}
+function logout(){
+  supabaseClient.auth.signOut().then(() => {
+    showLogin();
+  });
+}
 
 function showPage(name){
   document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));

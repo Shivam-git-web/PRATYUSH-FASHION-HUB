@@ -149,7 +149,7 @@ input,select,textarea{width:100%;border:1px solid var(--line);border-radius:7px;
       <div class="field"><label>Sizes</label><input id="pSizes" placeholder="S,M,L,XL"></div>
       <div class="field"><label>Stock</label><input id="pStock" type="number" min="0" value="0"></div>
       <div class="field full"><label>Description</label><textarea id="pDescription"></textarea></div>
-      <div class="field full"><label>Product Image</label><input id="pImage" type="file" accept="image/jpeg,image/png,image/webp"></div>
+      <div class="field full"><label>Product Image</label><input id="pImage" type="file" accept="image/jpeg,image/png,image/webp" multiple ></div>
       <div class="full actions">
         <button class="btn primary" id="saveProductBtn" onclick="createProduct()">Save Product</button>
         <button class="btn light" onclick="closeProductModal()">Cancel</button>
